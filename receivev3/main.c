@@ -1,0 +1,246 @@
+#include "define.h"
+#include "ctrl.h"
+
+#define ALARM_SLEEP 1
+
+int numall=0,numme=0;
+int tm_due=0;
+int endtm=0;
+int pkt_tm=1;
+int pkt_ps[MAXTIME];
+extern int sockfd;
+struct interface_info
+{
+ 	char  ifname[64];
+ 	unsigned char ip[4];
+ 	unsigned char mac[6];
+};
+
+void print_mac(unsigned char * mac_addr)
+{
+	int i =0;
+ 	for (; i < 6; ++i)
+ 	{
+  		printf("%02X", mac_addr[i]);
+  		if (i != 5) printf(":");
+ 	}
+ 	printf("\n");
+} 
+
+void print_ips(struct sockaddr_in* ip_addr)
+{
+        puts ("IP address is:"); 
+        puts(inet_ntoa(ip_addr->sin_addr)); 
+}
+
+void print_ip(unsigned char * ip_addr)
+{
+	int i =0;
+	for (; i < 4; ++i)
+ 	{
+  		printf("%d", ip_addr[i]);
+  		if (i != 3) printf(".");
+ 	} 
+	printf("\n");
+}
+
+int mac_is_equal(unsigned char *mac_addr1,unsigned char *mac_addr2)
+{
+	int count=0;
+	for(;count<6;++count)
+		if(*(mac_addr1+count)!=*(mac_addr2+count)) return 0;
+	return 1;
+}
+
+int ip_is_equal(unsigned char *ip_addr1,unsigned char *ip_addr2)
+{
+	int count=0;
+	for(;count<4;++count)
+		if(*(ip_addr1+count)!=*(ip_addr2+count)) return 0;
+	return 1;
+}
+
+int getinterface(struct interface_info  if_info[])
+{
+	int fd, intrface, retn ,ret= 0; 
+
+ 	  struct ifreq buf[4]; 
+	memset(buf,0,4*sizeof(struct ifreq));
+  	 struct arpreq arp; 
+
+  	 struct ifconf ifc; 
+
+ 	  if ((fd = socket (AF_INET, SOCK_DGRAM, 0)) >= 0) { 
+
+    	  ifc.ifc_len = sizeof buf; 
+
+    	  ifc.ifc_buf = (caddr_t) buf; 
+
+    	  if (!ioctl (fd, SIOCGIFCONF, (char *) &ifc)) { 
+
+          intrface = ifc.ifc_len / sizeof (struct ifreq);
+ 	       printf("interface num is intrface=%d\n\n\n",intrface); 
+	  ret=intrface;
+          while (intrface-- > 0) 
+          { 
+                printf ("net device %s\n", buf[intrface].ifr_name); 
+		memcpy(if_info[intrface].ifname,buf[intrface].ifr_name,strlen(buf[intrface].ifr_name));
+		if_info[intrface].ifname[strlen(buf[intrface].ifr_name)]='\0';
+	
+                if (!(ioctl (fd, SIOCGIFFLAGS, (char *) &buf[intrface]))) { 
+
+                      if (buf[intrface].ifr_flags & IFF_PROMISC) { 
+ 
+                                  puts ("the interface is PROMISC"); 
+  		                  retn++; 
+                      } 
+           } 
+  	   else { 
+               char str[256]; 
+               sprintf (str, "cpm: ioctl device %s", buf[intrface].ifr_name); 
+               perror (str); 
+            } 
+
+/*Jugde whether the net card status is up       */ 
+           if (buf[intrface].ifr_flags & IFF_UP) { 
+                puts("the interface status is UP"); 
+               } 
+            else { 
+                puts("the interface status is DOWN"); 
+            } 
+
+/*Get IP of the net card */ 
+           if (!(ioctl (fd, SIOCGIFADDR, (char *) &buf[intrface]))) 
+           { 
+		//print_ips((struct sockaddr_in*)&buf[intrface].ifr_addr);
+		struct sockaddr_in *sin =(struct sockaddr_in*)&buf[intrface].ifr_addr;
+		print_ips(sin);
+		char * p = (char *)&sin->sin_addr;
+		memcpy(if_info[intrface].ip,p,4);
+            } 
+            else { 
+               char str[256]; 
+               sprintf (str, "cpm: ioctl device %s", buf[intrface].ifr_name); 
+               perror (str); 
+           } 
+
+/*Get HW ADDRESS of the net card */ 
+            if (!(ioctl (fd, SIOCGIFHWADDR, (char *) &buf[intrface]))) 
+            { 
+                puts ("HW address is:"); 
+		print_mac((unsigned char *)buf[intrface].ifr_hwaddr.sa_data);
+     		memcpy(if_info[intrface].mac,buf[intrface].ifr_hwaddr.sa_data,6);
+            } 
+            else { 
+               char str[256]; 
+               sprintf (str, "cpm: ioctl device %s", buf[intrface].ifr_name); 
+               perror (str); 
+           } 
+        } 
+      } else 
+         perror ("cpm: ioctl"); 
+   } else 
+        perror ("cpm: socket"); 
+        close (fd); 
+	return ret;
+}
+
+void my_sigalarm(int sig) {
+	int now;  	
+		
+	printf("%d\n",numall);
+	pkt_ps[pkt_tm]=numall;
+	pkt_tm++;
+	if((now=time(NULL))>endtm)
+	{
+		tm_due=0;
+		printf("Time is due,Recv stopped!\n");
+		send_to_ctrl();
+		return;
+	}
+	else
+	{
+	  	alarm(ALARM_SLEEP);
+  		signal(SIGALRM, my_sigalarm);
+	}
+}
+
+int recv_main()
+{
+ 	int optval=1;
+	char buf[2000];
+	struct interface_info if_info[4];
+	struct ethhdr* pethhdr;
+	struct ip* iph;
+	int nlen;
+	int eth_num =getinterface(if_info);
+	int i=0;
+	for(;i<eth_num;++i)
+	{
+		printf("%s\n",if_info[i].ifname);
+		print_ip(if_info[i].ip);
+		print_mac(if_info[i].mac);
+	}
+ 	int rawsock =socket(PF_PACKET,SOCK_RAW, htons(ETH_P_ALL));//构造原始套接字
+        if (rawsock < 0)
+	{
+	    printf("creatsocket fail");
+	    return 0;
+	}
+	if (setsockopt(rawsock, SOL_SOCKET, SO_BROADCAST,&optval, sizeof(optval)) == -1)
+ 	{
+ 		printf("Could not setsocketopt on raw socket\n");
+  		close(rawsock);
+		printf("%d\n",errno);
+ 	 	return -1;
+ 	}  
+    	signal(SIGALRM, my_sigalarm);
+    	alarm(ALARM_SLEEP);
+ 	while ((nlen = recvfrom(rawsock, buf, sizeof(buf), MSG_TRUNC, NULL, NULL)) > 0)
+	{	
+		iph=(struct ip *)(buf+sizeof(struct ethhdr));
+		if(ntohs(iph->id)==250)
+			numall++;
+		if(tm_due==1) break;
+	}
+	printf("end\n");
+	return 1;
+}
+
+int main(int argc,char *argv[])
+{
+	struct command* getcmd; 
+	time_t now,start,end;
+	
+ 	getRequest(argc,argv,"rev");
+	getcmd=getCMD();
+	printCMD(getcmd);
+	start=switchtime(getcmd->starttime);
+	end=switchtime(getcmd->endtime);
+	end+=2;
+	printf("StartTime: %s",(char*)ctime(&start));
+	printf("EndTime:   %s\n",(char*)ctime(&end));
+	endtm=end;
+	now=time(NULL);
+	if(start<now)
+	{
+		printf("Error: %s: Time has gone!\n",ctime(&start));
+		return 0;
+	}
+	pkt_ps[0]=0;
+	while((now=time(NULL))<start){}
+	if(recv_main()!=1)
+	{
+		printf("Recv Error!\n");
+	}
+	pkt_tm=1;
+	return 0;
+}
+
+void send_to_ctrl()
+{
+	int re;
+	if((re=send(sockfd,pkt_ps,sizeof(pkt_ps),0))>=0)
+		printf("Result Mesage Sent to Ctrl Succesfully!\n");
+	exit(0);
+}

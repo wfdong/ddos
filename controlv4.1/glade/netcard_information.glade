@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkWindow" id="net_card_dialog">
+    <property name="default_width">440</property>
+    <property name="default_height">300</property>
+    <child>
+      <object class="GtkFixed" id="fixed1">
+        <property name="visible">True</property>
+        <child>
+          <object class="GtkLabel" id="label1">
+            <property name="width_request">153</property>
+            <property name="height_request">28</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">interfaces information:</property>
+          </object>
+          <packing>
+            <property name="x">24</property>
+            <property name="y">8</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkTextView" id="textview">
+            <property name="width_request">335</property>
+            <property name="height_request">135</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+          </object>
+          <packing>
+            <property name="x">48</property>
+            <property name="y">33</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkLabel" id="label2">
+            <property name="width_request">159</property>
+            <property name="height_request">38</property>
+            <property name="visible">True</property>
+            <property name="label" translatable="yes">select  netcard to send :</property>
+          </object>
+          <packing>
+            <property name="x">26</property>
+            <property name="y">166</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkFixed" id="fixed2">
+            <property name="width_request">246</property>
+            <property name="height_request">87</property>
+            <property name="visible">True</property>
+          </object>
+          <packing>
+            <property name="x">46</property>
+            <property name="y">202</property>
+          </packing>
+        </child>
+        <child>
+          <object class="GtkButton" id="button_net_ok">
+            <property name="label" translatable="yes">ok</property>
+            <property name="width_request">84</property>
+            <property name="height_request">35</property>
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="receives_default">True</property>
+          </object>
+          <packing>
+            <property name="x">304</property>
+            <property name="y">281</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>

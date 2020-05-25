@@ -1,0 +1,33 @@
+#include"gtk_callback.h"
+
+
+int listenfd,connfd;
+extern struct textInfo *ti;
+int  main(int agrc, char* argv[])
+{
+	struct sockaddr_in servaddr;	
+	
+	bzero(& servaddr,sizeof(servaddr));
+	servaddr.sin_family=AF_INET;
+	servaddr.sin_addr.s_addr=htonl(INADDR_ANY);
+	servaddr.sin_port=htons(SERV_PORT);
+
+	/****************************************************/
+	/*Bind and listen*/
+	if((listenfd=socket(AF_INET,SOCK_STREAM,0))<0)
+	{
+		perror("Sock--listenfd:");
+	}
+	if(bind(listenfd,(SA *)&servaddr,sizeof(servaddr))<0)
+	{
+		perror("Bind failed:");
+	}
+	
+	
+	/****************************************************/
+	ti=(struct textInfo*)mmap(NULL,sizeof(struct textInfo),PROT_READ|PROT_WRITE,MAP_SHARED|MAP_ANONYMOUS,-1,0);
+	get_gtk_init(agrc,argv);
+		
+	return 0;
+}
+

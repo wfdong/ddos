@@ -1,0 +1,228 @@
+Recv CMD-> 
+ Att_IP:-241712162
+ Port:1500
+ ThreadNum:4
+ Type: 2
+ Rate: 50000
+ Pkt_Size: 0
+ StartTime: 2010-3-16 21:2:0
+ EndTime: 2010-3-16 21:2:30
+Have recive data and is not what i want 
+1268744520   1268744448
+112375        packets/  0s   rate:112375    packets/s
+236039        packets/  1s   rate:123664    packets/s
+374292        packets/  2s   rate:138253    packets/s
+506001        packets/  3s   rate:131709    packets/s
+639280        packets/  4s   rate:133279    packets/s
+774384        packets/  5s   rate:135104    packets/s
+907180        packets/  6s   rate:132796    packets/s
+1040697        packets/  7s   rate:133517    packets/s
+1179389        packets/  8s   rate:138692    packets/s
+1302548        packets/  9s   rate:123159    packets/s
+1443873        packets/  10s   rate:141325    packets/s
+1583787        packets/  11s   rate:139914    packets/s
+1712610        packets/  12s   rate:128823    packets/s
+1848014        packets/  13s   rate:135404    packets/s
+1977218        packets/  14s   rate:129204    packets/s
+2113960        packets/  15s   rate:136742    packets/s
+2251700        packets/  16s   rate:137740    packets/s
+2385299        packets/  17s   rate:133599    packets/s
+2522202        packets/  18s   rate:136903    packets/s
+2648104        packets/  19s   rate:125902    packets/s
+2771275        packets/  20s   rate:123171    packets/s
+2903382        packets/  21s   rate:132107    packets/s
+3037303        packets/  22s   rate:133921    packets/s
+3170648        packets/  23s   rate:133345    packets/s
+3296307        packets/  24s   rate:125659    packets/s
+3432038        packets/  25s   rate:135731    packets/s
+3569120        packets/  26s   rate:137082    packets/s
+3705488        packets/  27s   rate:136368    packets/s
+3833840        packets/  28s   rate:128352    packets/s
+3959716        packets/  29s   rate:125876    packets/s
+kill pid 16861
+kill pid 16862
+kill pid 16863
+kill pid 16864
+Recv CMD-> 
+ Att_IP:-241712162
+ Port:1500
+ ThreadNum:4
+ Type: 3
+ Rate: 50000
+ Pkt_Size: 0
+ StartTime: 2010-3-16 21:3:0
+ EndTime: 2010-3-16 21:3:30
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+3959716        packets/  30s   rate:0    packets/s
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Gateway:211.64.142.6
+Have recive data and is not what i want 
+1268744580   1268744551
+3959716        packets/  31s   rate:0    packets/s
+3959716        packets/  32s   rate:0    packets/s
+3959716        packets/  33s   rate:0    packets/s
+3959716        packets/  34s   rate:0    packets/s
+3959716        packets/  35s   rate:0    packets/s
+3959716        packets/  36s   rate:0    packets/s
+3959716        packets/  37s   rate:0    packets/s
+3959716        packets/  38s   rate:0    packets/s
+3959716        packets/  39s   rate:0    packets/s
+3959716        packets/  40s   rate:0    packets/s
+3959716        packets/  41s   rate:0    packets/s
+3959716        packets/  42s   rate:0    packets/s
+3959716        packets/  43s   rate:0    packets/s
+3959716        packets/  44s   rate:0    packets/s
+3959716        packets/  45s   rate:0    packets/s
+3959716        packets/  46s   rate:0    packets/s
+3959716        packets/  47s   rate:0    packets/s
+3959716        packets/  48s   rate:0    packets/s
+3959716        packets/  49s   rate:0    packets/s
+3959716        packets/  50s   rate:0    packets/s
+3959716        packets/  51s   rate:0    packets/s
+3959716        packets/  52s   rate:0    packets/s
+3959716        packets/  53s   rate:0    packets/s
+3959716        packets/  54s   rate:0    packets/s
+3959716        packets/  55s   rate:0    packets/s
+3959716        packets/  56s   rate:0    packets/s
+3959716        packets/  57s   rate:0    packets/s
+3959716        packets/  58s   rate:0    packets/s
+3959716        packets/  59s   rate:0    packets/s
+82324        packets/  0s   rate:-3877392    packets/s
+173269        packets/  1s   rate:90945    packets/s
+260059        packets/  2s   rate:86790    packets/s
+349687        packets/  3s   rate:89628    packets/s
+439530        packets/  4s   rate:89843    packets/s
+528677        packets/  5s   rate:89147    packets/s
+620529        packets/  6s   rate:91852    packets/s
+712377        packets/  7s   rate:91848    packets/s
+801715        packets/  8s   rate:89338    packets/s
+888099        packets/  9s   rate:86384    packets/s
+977012        packets/  10s   rate:88913    packets/s
+1062108        packets/  11s   rate:85096    packets/s
+1154724        packets/  12s   rate:92616    packets/s
+1242687        packets/  13s   rate:87963    packets/s
+1334399        packets/  14s   rate:91712    packets/s
+1421764        packets/  15s   rate:87365    packets/s
+1515209        packets/  16s   rate:93445    packets/s
+1607394        packets/  17s   rate:92185    packets/s
+1698148        packets/  18s   rate:90754    packets/s
+1790170        packets/  19s   rate:92022    packets/s
+1876045        packets/  20s   rate:85875    packets/s
+1961225        packets/  21s   rate:85180    packets/s
+2049450        packets/  22s   rate:88225    packets/s
+2139040        packets/  23s   rate:89590    packets/s
+2229037        packets/  24s   rate:89997    packets/s
+2313061        packets/  25s   rate:84024    packets/s
+2400800        packets/  26s   rate:87739    packets/s
+2484948        packets/  27s   rate:84148    packets/s
+2574634        packets/  28s   rate:89686    packets/s
+2656660        packets/  29s   rate:82026    packets/s
+kill pid 16865
+kill pid 16866
+kill pid 16867
+kill pid 16868
+Recv CMD-> 
+ Att_IP:-241712162
+ Port:1500
+ ThreadNum:4
+ Type: 4
+ Rate: 50000
+ Pkt_Size: 0
+ StartTime: 2010-3-16 21:4:0
+ EndTime: 2010-3-16 21:4:30
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Gateway:211.64.142.6
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+Have recive data and is not what i want 
+1268744640   1268744610
+2656660        packets/  30s   rate:0    packets/s
+2656660        packets/  31s   rate:0    packets/s
+2656660        packets/  32s   rate:0    packets/s
+2656660        packets/  33s   rate:0    packets/s
+2656660        packets/  34s   rate:0    packets/s
+2656660        packets/  35s   rate:0    packets/s
+2656660        packets/  36s   rate:0    packets/s
+2656660        packets/  37s   rate:0    packets/s
+2656660        packets/  38s   rate:0    packets/s
+2656660        packets/  39s   rate:0    packets/s
+2656660        packets/  40s   rate:0    packets/s
+2656660        packets/  41s   rate:0    packets/s
+2656660        packets/  42s   rate:0    packets/s
+2656660        packets/  43s   rate:0    packets/s
+2656660        packets/  44s   rate:0    packets/s
+2656660        packets/  45s   rate:0    packets/s
+2656660        packets/  46s   rate:0    packets/s
+2656660        packets/  47s   rate:0    packets/s
+2656660        packets/  48s   rate:0    packets/s
+2656660        packets/  49s   rate:0    packets/s
+2656660        packets/  50s   rate:0    packets/s
+2656660        packets/  51s   rate:0    packets/s
+2656660        packets/  52s   rate:0    packets/s
+2656660        packets/  53s   rate:0    packets/s
+2656660        packets/  54s   rate:0    packets/s
+2656660        packets/  55s   rate:0    packets/s
+2656660        packets/  56s   rate:0    packets/s
+2656660        packets/  57s   rate:0    packets/s
+2656660        packets/  58s   rate:0    packets/s
+2656660        packets/  59s   rate:0    packets/s
+146367        packets/  0s   rate:-2510293    packets/s
+294974        packets/  1s   rate:148607    packets/s
+443451        packets/  2s   rate:148477    packets/s
+588002        packets/  3s   rate:144551    packets/s
+737965        packets/  4s   rate:149963    packets/s
+883883        packets/  5s   rate:145918    packets/s
+1030201        packets/  6s   rate:146318    packets/s
+1177223        packets/  7s   rate:147022    packets/s
+1325313        packets/  8s   rate:148090    packets/s
+1473249        packets/  9s   rate:147936    packets/s
+1621211        packets/  10s   rate:147962    packets/s
+1770401        packets/  11s   rate:149190    packets/s
+1917056        packets/  12s   rate:146655    packets/s
+2065902        packets/  13s   rate:148846    packets/s
+2214495        packets/  14s   rate:148593    packets/s
+2360846        packets/  15s   rate:146351    packets/s
+2509783        packets/  16s   rate:148937    packets/s
+2657060        packets/  17s   rate:147277    packets/s
+2803440        packets/  18s   rate:146380    packets/s
+2951870        packets/  19s   rate:148430    packets/s
+3100709        packets/  20s   rate:148839    packets/s
+3247140        packets/  21s   rate:146431    packets/s
+3396063        packets/  22s   rate:148923    packets/s
+3541235        packets/  23s   rate:145172    packets/s
+3688163        packets/  24s   rate:146928    packets/s
+3834588        packets/  25s   rate:146425    packets/s
+3981311        packets/  26s   rate:146723    packets/s
+4129189        packets/  27s   rate:147878    packets/s
+4272272        packets/  28s   rate:143083    packets/s
+4418064        packets/  29s   rate:145792    packets/s
+kill pid 16870
+kill pid 16871
+kill pid 16874
+kill pid 16875
+goodbye

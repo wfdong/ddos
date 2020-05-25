@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<interface>
+  <requires lib="gtk+" version="2.16"/>
+  <!-- interface-naming-policy project-wide -->
+  <object class="GtkAboutDialog" id="dialog_about">
+    <property name="border_width">5</property>
+    <property name="window_position">center</property>
+    <property name="default_width">320</property>
+    <property name="default_height">260</property>
+    <property name="type_hint">normal</property>
+    <property name="has_separator">False</property>
+    <property name="program_name">DDOS Attack Control Platform </property>
+    <property name="version">1.0</property>
+    <property name="copyright" translatable="yes">版权所有 翻版必究</property>
+    <property name="license" translatable="yes">Copyright (C) 2009 Chang &lt;chang4979@yahool.cn&gt; 
+
+&#x6B64;&#x7A0B;&#x5E8F;&#x662F;&#x81EA;&#x7531;&#x8F6F;&#x4EF6;&#xFF1B;&#x4F60;&#x53EF;&#x4EE5;&#x9075;&#x7167;&#x81EA;&#x7531;&#x8F6F;&#x4EF6;&#x57FA;&#x91D1;&#x4F1A;&#x51FA;&#x7248;
+&#x7684; GNU &#x901A;&#x7528;&#x516C;&#x5171;&#x8BB8;&#x53EF;&#x8BC1;&#x6761;&#x6B3E;&#x6765;&#x4FEE;&#x6539;&#x548C;&#x91CD;&#x65B0;&#x53D1;&#x5E03;&#x8FD9;&#x4E00;
+&#x7A0B;&#x5E8F;&#xFF1B;&#x4F7F;&#x7528;&#x8BB8;&#x53EF;&#x8BC1;&#x7684;&#x7B2C;&#x4E8C;&#x7248;&#xFF0C;&#x6216;&#x8005;&#xFF08;&#x6839;&#x636E;&#x4F60;&#x7684;&#x9009;&#x62E9;&#xFF09;
+&#x9009;&#x7528;&#x4EFB;&#x4F55;&#x66F4;&#x65B0;&#x7684;&#x7248;&#x672C;&#x3002;
+
+&#x53D1;&#x5E03;&#x8FD9;&#x4E00;&#x7A0B;&#x5E8F;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5E0C;&#x671B;&#x5B83;&#x6709;&#x7528;&#xFF0C;
+&#x4F46;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x62C5;&#x4FDD;&#x3002;&#x751A;&#x81F3;&#x6CA1;&#x6709;&#x9002;&#x5408;&#x7279;&#x5B9A;
+&#x76EE;&#x7684;&#x7684;&#x9690;&#x542B;&#x7684;&#x62C5;&#x4FDD;&#x3002;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x60C5;&#x51B5;&#x8BF7;
+&#x53C2;&#x9605; GNU &#x901A;&#x7528;&#x516C;&#x5171;&#x8BB8;&#x53EF;&#x8BC1;&#x3002;
+
+&#x4F60;&#x5E94;&#x8BE5;&#x5DF2;&#x7ECF;&#x548C;&#x7A0B;&#x5E8F;&#x4E00;&#x8D77;&#x6536;&#x5230;&#x4E00;&#x4EFD; GNU &#x901A;&#x7528;&#x516C;&#x5171;&#x8BB8;&#x53EF;
+&#x8BC1;&#x7684;&#x526F;&#x672C;&#x3002;&#x5982;&#x679C;&#x8FD8;&#x6CA1;&#x6709;&#xFF0C;&#x5199;&#x4FE1;&#x7ED9;&#xFF1A;Free Software Foundation, Inc.,
+51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+</property>
+    <property name="authors">指导教师：曲海鹏
+
+常丽娜 (2008级信息安全研究生)
+马  磊 (2007级计算机科学与技术本科)
+杨光伟 (2007级计算机科学与技术本科)
+王付栋 (2007级计算机科学与技术本科)</property>
+    <property name="documenters">常丽娜</property>
+    <property name="translator_credits" translatable="yes">程序编写： 马磊  杨光伟
+设      备： 王付栋</property>
+    <property name="artists">编写：常丽娜
+修改：杨光伟</property>
+    <property name="wrap_license">True</property>
+    <child internal-child="vbox">
+      <object class="GtkVBox" id="dialog-vbox1">
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
+        <property name="spacing">2</property>
+        <child>
+          <placeholder/>
+        </child>
+        <child internal-child="action_area">
+          <object class="GtkHButtonBox" id="dialog-action_area1">
+            <property name="visible">True</property>
+            <property name="layout_style">end</property>
+          </object>
+          <packing>
+            <property name="expand">False</property>
+            <property name="pack_type">end</property>
+            <property name="position">0</property>
+          </packing>
+        </child>
+      </object>
+    </child>
+  </object>
+</interface>
